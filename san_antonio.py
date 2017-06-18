@@ -1,5 +1,6 @@
 # -*- coding utf-8 -*-
 import random
+import json
 
 def read_values_from_json():
   values = []
