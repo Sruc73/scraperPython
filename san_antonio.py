@@ -6,7 +6,7 @@ quotes = [
   "On doit pouvoir choisir entre s'écouter parler et se faire entendre"]
 
 characters = [
-  "Alvin et le Chipmunks",
+  "Alvin et les Chipmunks",
   "Babar",
   "betty boop",
   "calimero",
