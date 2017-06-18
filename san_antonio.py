@@ -1,18 +1,13 @@
 # -*- coding utf-8 -*-
 import random
 
-quotes = [
-  "Ecoutez-moi monsieur Shakespear, vous avez beau être ou ne pas être, nous sommes !",
-  "On doit pouvoir choisir entre s'écouter parler et se faire entendre"]
-
-characters = [
-  "Alvin et les Chipmunks",
-  "Babar",
-  "betty boop",
-  "calimero",
-  "casper",
-  "le chat potté",
-  "Kirikou"]
+def read_values_from_json:
+  values = []
+  with open("characters.json") as f:
+    data = json.load(f)
+    for entry in data:
+      values.append(entry[character])
+      return values
 
 def get_random_item(object_list):
   rand_num = random.randint(0, len(object_list) - 1)
