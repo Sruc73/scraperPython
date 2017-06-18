@@ -2,13 +2,25 @@
 import random
 import json
 
-def read_values_from_json():
+# Give a Json file and return a list
+def read_values_from_json(path, key):
   values = []
-  with open("characters.json") as f:
+  with open(path) as f:
     data = json.load(f)
     for entry in data:
-      values.append(entry[character])
+      values.append(entry[key])
       return values
+
+# Give a json and return a list
+def clean_strings(sentences):
+  cleaned = []
+  # Store quotes on a list. Create an empty list and add each sentence one by one.
+  for sentence in sentences:
+    # Clean quote from whitespace and so on
+    cleaned_sentence = sentence.strip()
+    # Don't use extend as it adds letter one by one!
+    cleaned.append(cleaned_sentence)
+  return cleaned
 
 def random_character():
   all_values = read_values_from_json()
