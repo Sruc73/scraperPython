@@ -1,7 +1,7 @@
 # -*- coding utf-8 -*-
 import random
 
-def read_values_from_json:
+def read_values_from_json():
   values = []
   with open("characters.json") as f:
     data = json.load(f)
