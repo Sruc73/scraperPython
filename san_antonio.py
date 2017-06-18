@@ -22,30 +22,56 @@ def clean_strings(sentences):
     cleaned.append(cleaned_sentence)
   return cleaned
 
+# Return a random item in a list
+def random_item_in(object_list):
+  rand_numb = random.randint(0, len(object_list))
+  return object_list[rand_numb]
+
+# Return a random value from a json file
+def random_value(source_path, key):
+  all_values = read_values_from_json(source_path, key)
+  clean_values = clean_strings(all_values)
+  return random_item_in(clean_values)
+
+
+#####################
+###### QUOTES #######
+#####################
+
+# Gather quotes from San Antonio
+
+def random_quote():
+  return random_value('quotes.json', 'quote')
+
+######################
+#### CHARACTERS ######
+######################
+
+# Gather characters form wikipedia
+
 def random_character():
-  all_values = read_values_from_json()
-  return random_intem_in(all_values)
+  return random_value('characters.json', 'character')
 
-print(random_quote())
 
-def get_random_item(object_list):
-  rand_num = random.randint(0, len(object_list) - 1)
-  item = object_list[rand_num] #Get a quote from a list
-  return item #Return the item
+######################
+#### INTERACTION ######
+######################
 
-def capitalize(words):
-  for word in words:
-    word.capitalize()
+# Print a random sentence.
 
-def message(character, quote):
-  capitalize(character)
-  capitalize(quote)
-  return "{} à dit : {}".format(character, quote)
+def print_random_sentence():
+  rand_quote = random_quote()
+  rand_character = random_character()
+  print(">>>> {} à dit : {}".format(rand_character, rand_quote))
 
-user_answer = input("Tapez entrée pour connaitre une autre citation ou B pour quitter le programme.")
+def main_loop():
+  while True:
+    print_random_sentence()
+    message = ('Would you like another true quote? type [enter].' 'To exit, type[B].')
+    choice = input(message).upper()
+    if choice == 'B':
+      break
+      # This will stop the loop!
 
-# Show random quote
-
-while user_answer != "B":
-  print(message(get_random_item(characters), get_random_item(quotes)))
-  user_answer = input("Tapez entrée pour connaitre une autre citaion ou B pour quitter le programme.")
+if __name__ == '__main__':
+  main_loop()
