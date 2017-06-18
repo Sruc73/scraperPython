@@ -9,6 +9,12 @@ def read_values_from_json():
       values.append(entry[character])
       return values
 
+def random_character():
+  all_values = read_values_from_json()
+  return random_intem_in(all_values)
+
+print(random_quote())
+
 def get_random_item(object_list):
   rand_num = random.randint(0, len(object_list) - 1)
   item = object_list[rand_num] #Get a quote from a list
