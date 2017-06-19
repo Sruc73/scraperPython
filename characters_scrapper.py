@@ -1,8 +1,8 @@
 import scrapy
 
-class bolgSpider(scrapy.Spider):
+class BlogSpider(scrapy.Spider):
     name = 'characterspider'
-    start_urls = [https://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Personnage_d%27animation]
+    start_urls = ['https://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Personnage_d\'animation']
 
     def parse(self, response):
         for link in response.css('div#mw-pages div.mw-content-ltr li'):
