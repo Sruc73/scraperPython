@@ -8,13 +8,8 @@ class QuotesSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        for quote in response.css('div.quote'):
+        for quote in response.css('div#mw-pages li'):
             yield {
-                'text': quote.css('span.text::text').extract_first(),
+                'character': quote.css('a ::text').extract_first(),
                 'author': quote.xpath('span/small/text()').extract_first(),
             }
-
-        next_page = response.css('li.next a::attr("href")').extract_first()
-        if next_page is not None:
-            next_page = response.urljoin(next_page)
-            yield scrapy.Request(next_page, callback=self.parse)
