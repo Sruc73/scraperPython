@@ -11,5 +11,4 @@ class QuotesSpider(scrapy.Spider):
         for quote in response.css('div#mw-pages li'):
             yield {
                 'character': quote.css('a ::text').extract_first(),
-                'author': quote.xpath('span/small/text()').extract_first(),
             }
