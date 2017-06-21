@@ -8,7 +8,7 @@ class QuotesSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        for quote in response.css('div#mw-pages li'):
+        for quote in response.css('div#mw-pages div.mw-content-ltr li'):
             yield {
                 'character': quote.css('a ::text').extract_first(),
             }
