@@ -24,7 +24,7 @@ def clean_strings(sentences):
 
 # Return a random item in a list
 def random_item_in(object_list):
-    rand_numb = random.randint(0, len(object_list))
+    rand_numb = random.randint(0, len(object_list) -1)
     return object_list[rand_numb]
 
 # Return a random value from a json file
